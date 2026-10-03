@@ -1,22 +1,38 @@
+:root {
+    --bg-start: #E0F2FE;
+    --bg-end: #F8FAFC;
+    --surface: #FFFFFF;
+    --text: #1E293B;
+    --muted: #64748B;
+    --border: #E2E8F0;
+    --primary: #0F766E;
+    --primary-hover: #115E59;
+    --on-primary: #FFFFFF;
+    --accent: #F59E0B;
+    --danger: #E11D48;
+    --danger-hover: #BE123C;
+    --th-bg: #0F172A;
+    --th-text: #FFFFFF;
+}
+
 body {
-    background: linear-gradient(#8412B0, #000);
+    background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+    background-attachment: fixed;
+    color: var(--text);
     font-family: 'Consolas', sans-serif;
     margin: 0;
-    padding: 0;
-    height: 100vh;
+    padding: 0 0 40px;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
 }
 
 h1 {
-    color: #FFF;
+    color: var(--primary);
     text-align: center;
-    margin-top: 20px;
-    font-size: 2.5em;
-    display: inline;
-    text-shadow: 0 0 10px #FC199A, 0 0 20px #FC199A, 0 0 30px #FC199A, 0 0 40px #FF007F, 0 0 50px #FF007F;
+    margin-top: 30px;
+    font-size: 2.2em;
 }
 
 .container {
@@ -24,90 +40,92 @@ h1 {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    margin-top: 50px;
+    margin-top: 30px;
     width: 90%;
     max-width: 1200px;
 }
 
 .formContainer {
     text-align: center;
-    background-color: #FF007F;
+    background-color: var(--surface);
+    border-top: 5px solid var(--accent);
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
     width: 20%;
     margin-right: 20px;
 }
 
 label {
-    color: #00FFFF;
+    display: block;
+    text-align: left;
+    color: var(--text);
     font-size: 14px;
-    margin-right: 10px;
+    font-weight: bold;
+    margin-bottom: 6px;
 }
 
 input {
     padding: 8px;
-    margin-right: 10px;
     margin-bottom: 15px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background-color: var(--surface);
+    color: var(--text);
     width: 100%;
     box-sizing: border-box;
 }
 
 button {
-    background-color: #FFCC00;
-    color: #8412B0;
+    background-color: var(--primary);
+    color: var(--on-primary);
     border: none;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
     font-size: 14px;
     width: 100%;
 }
 
 button:hover {
-    background-color: #FC199A;
-    color: #fff;
+    background-color: var(--primary-hover);
 }
 
 table {
     width: 60%;
     border-collapse: collapse;
     margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 th, td {
-    border: 1px solid #ddd;
+    border: 1px solid var(--border);
     padding: 12px 15px;
     text-align: left;
 }
 
 th {
-    background-color: #FC199A;
-    color: white;
+    background-color: var(--th-bg);
+    color: var(--th-text);
 }
 
 td {
-    background-color: #00FFFF;
-    color: #8412B0;
+    background-color: var(--surface);
+    color: var(--text);
+}
+
+#productsTable tbody tr:hover td {
+    background-color: var(--bg-start);
 }
 
 .delete-btn {
-    background-color: #f0745e;
+    background-color: var(--danger);
     color: white;
-    border: none;
     padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
+    width: auto;
 }
 
 .delete-btn:hover {
-    background-color: #ff0800;
-}
-
-
-#productsTable tbody tr {
-    background-color: #FFF;
-    color: #000;
+    background-color: var(--danger-hover);
 }

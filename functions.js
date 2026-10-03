@@ -2,16 +2,16 @@
 let db;
 const request = indexedDB.open('exampleProductDB', 1);
 
-request.onerror = function(event) {
+request.onerror = function (event) {
     console.error("Database error: ", event.target.error);
 };
 
-request.onsuccess = function(event) {
+request.onsuccess = function (event) {
     db = event.target.result;
     loadProductTable(); // Load products after the database is opened
 };
 
-request.onupgradeneeded = function(event) {
+request.onupgradeneeded = function (event) {
     db = event.target.result;
     db.createObjectStore('products', { keyPath: 'id' });
 };
@@ -23,10 +23,20 @@ function loadProductTable() {
 
     const request = store.getAll();
 
-    request.onsuccess = function(event) {
-        const products = event.target.result;
+    request.onsuccess = function (event) {
+        const allProducts = event.target.result;
+        const term = document.getElementById('search').value.trim().toLowerCase();
+        const products = allProducts.filter(p => p.name.toLowerCase().includes(term));
+
+        document.getElementById('productCount').textContent =
+            `${products.length} de ${allProducts.length} productos`;
+
         const tableBody = document.querySelector('#productsTable tbody');
-        tableBody.innerHTML = ''; // Clear the table before adding new products
+        tableBody.innerHTML = '';
+
+        products.forEach(product => {
+            // ...el resto igual (crear fila y appendChild)
+        });
 
         products.forEach(product => {
             //Create a table row
@@ -40,7 +50,7 @@ function loadProductTable() {
             tableBody.appendChild(row);
         });
 
-    //Add event listeners for delete buttons
+        //Add event listeners for delete buttons
         document.querySelectorAll('.delete-btn').forEach(button => {
             button.addEventListener('click', deleteProduct);
         });
@@ -64,7 +74,7 @@ function addProduct() {
     //Get/Read the products
     const getAllRequest = store.getAll();
 
-    getAllRequest.onsuccess = function(event) {
+    getAllRequest.onsuccess = function (event) {
         const products = event.target.result;
         const newProduct = {
             id: products.length > 0 ? products[products.length - 1].id + 1 : 1, // Assign an incremental ID
@@ -72,13 +82,13 @@ function addProduct() {
             price: price
         };
 
-    //Add/Create the new product to the DB
+        //Add/Create the new product to the DB
         store.add(newProduct);
         //Clear the form fields
         document.getElementById('name').value = '';
         document.getElementById('price').value = '';
 
-    //Update the table with the new product
+        //Update the table with the new product
         loadProductTable();
     };
 }
@@ -98,3 +108,4 @@ function deleteProduct(event) {
 
 //Event listener for the button click
 document.getElementById('addProduct').addEventListener('click', addProduct);
+document.getElementById('search').addEventListener('input', loadProductTable);

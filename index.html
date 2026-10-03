@@ -15,10 +15,11 @@
 </head>
 
 <body>
+    <header>
     <h1>Example Product List Web App</h1>
+    </header>
 
     <div class="container">
-
         <div class="formContainer">
             <label for="name">Product Name:</label>
             <input type="text" id="name" placeholder="Enter product name">
@@ -29,22 +30,27 @@
             <button id="addProduct">Add Product</button>
         </div>
 
+        <div class="tableContainer">
+            <div class="toolbar">
+                <input type="search" id="search" placeholder="🔍 Buscar producto...">
+                <span id="productCount"></span>
+            </div>
 
-        <table id="productsTable">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-
-            </tbody>
-        </table>
+            <table id="productsTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
     </div>
 
+    <footer>Modificado por Diaz Reyes Luis Ignacio:)</footer>
 
     <script src="functions.js"></script>
 </body>

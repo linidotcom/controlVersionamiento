@@ -19,7 +19,7 @@ body {
     background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
     background-attachment: fixed;
     color: var(--text);
-    font-family: 'Consolas', sans-serif;
+    font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0 0 40px;
     min-height: 100vh;
@@ -33,6 +33,10 @@ h1 {
     text-align: center;
     margin-top: 30px;
     font-size: 2.2em;
+}
+
+h1, th {
+    font-family: 'Poppins', sans-serif;
 }
 
 .container {

@@ -1,44 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Example Data Table with IndexedDB</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+    <header>
     <h1>Example Product List Web App</h1>
+    </header>
 
     <div class="container">
-
         <div class="formContainer">
             <label for="name">Product Name:</label>
             <input type="text" id="name" placeholder="Enter product name">
-            
+
             <label for="price">Price:</label>
             <input type="number" id="price" placeholder="Enter product price" min="1">
-            
+
             <button id="addProduct">Add Product</button>
         </div>
 
-      
-        <table id="productsTable">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-          
-            </tbody>
-        </table>
+        <div class="tableContainer">
+            <div class="toolbar">
+                <input type="search" id="search" placeholder="🔍 Buscar producto...">
+                <span id="productCount"></span>
+            </div>
+
+            <table id="productsTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
     </div>
 
+    <footer>Modificado por Diaz Reyes Luis Ignacio:)</footer>
 
     <script src="functions.js"></script>
 </body>
+
 </html>
